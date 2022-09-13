@@ -10,6 +10,7 @@ import UIKit
 class WeatherListViewController: UIViewController {
   // MARK: Outlet UI
   @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   // MARK: Properties
   var regions = Region.allCases
@@ -26,6 +27,10 @@ class WeatherListViewController: UIViewController {
   // MARK: API
   func getCurrentWeathers() {
     Task {
+      DispatchQueue.main.async {
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+      }
       for region in regions {
         do {
           guard let url = region.url else { return }
@@ -37,6 +42,8 @@ class WeatherListViewController: UIViewController {
       }
       DispatchQueue.main.async {
         self.collectionView.reloadData()
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
       }
     }
   }
