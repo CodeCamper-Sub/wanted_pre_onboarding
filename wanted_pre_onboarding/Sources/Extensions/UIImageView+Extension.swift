@@ -16,9 +16,11 @@ extension UIImageView {
     }
     Task {
       do {
-        guard let url = URL(string: path) else { return }
-        let data: Data = try await URLSession.shared.dataTask(with: url)
-        guard let image = UIImage(data: data) else { return }
+        guard
+          let url = URL(string: path),
+          let data = try await URLSession.shared.dataTask(with: url),
+          let image = UIImage(data: data)
+        else { return }
         ImageCacher.shared.stoarge.setObject(image, forKey: NSString(string: path))
         self.image = image
       } catch let error {

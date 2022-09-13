@@ -29,7 +29,7 @@ class WeatherListViewController: UIViewController {
       for region in regions {
         do {
           guard let url = region.url else { return }
-          let response: Weather = try await URLSession.shared.dataTask(with: url)
+          let response: Weather = try await URLSession.shared.dataTaskDecoded(with: url)
           weatherData[region] = response
         } catch let error {
           debugPrint(error)
