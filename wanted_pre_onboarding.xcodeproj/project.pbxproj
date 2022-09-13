@@ -23,6 +23,7 @@
 		46E7CD5928CF157D0051FF0D /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E7CD5828CF157D0051FF0D /* ImageCacher.swift */; };
 		46E7CD5B28CF16C90051FF0D /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E7CD5A28CF16C90051FF0D /* URLSession+Extension.swift */; };
 		46E7CD5D28CF1ECB0051FF0D /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E7CD5C28CF1ECB0051FF0D /* NSObject+Extension.swift */; };
+		B0C471C928D0142400B34E6A /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C471C828D0142400B34E6A /* WeatherDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		46E7CD5828CF157D0051FF0D /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		46E7CD5A28CF16C90051FF0D /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		46E7CD5C28CF1ECB0051FF0D /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		B0C471C828D0142400B34E6A /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				460A8E2A28CF0A050077B9D4 /* Cell */,
 				46CF533628CF0603004A37E4 /* WeatherListViewController.swift */,
+				B0C471C828D0142400B34E6A /* WeatherDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				46E7CD5B28CF16C90051FF0D /* URLSession+Extension.swift in Sources */,
 				46E7CD5928CF157D0051FF0D /* ImageCacher.swift in Sources */,
 				46E7CD5028CF103B0051FF0D /* Defines.swift in Sources */,
+				B0C471C928D0142400B34E6A /* WeatherDetailViewController.swift in Sources */,
 				46CF533528CF0603004A37E4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

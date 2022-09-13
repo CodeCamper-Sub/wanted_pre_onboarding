@@ -28,7 +28,7 @@ class WeatherListCell: UICollectionViewCell {
           
     regionLabel.text = region.rawValue
     weatherImageView.loadImage("https://openweathermap.org/img/wn/\(icon).png")
-    temperatureLabel.text = "\(round(temp))°C"
+    temperatureLabel.text = "\(Int(temp))°C"
     humidityLabel.text = "\(humidity)%"
   }
 }

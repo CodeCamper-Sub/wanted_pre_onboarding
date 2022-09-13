@@ -13,15 +13,24 @@ class WeatherListViewController: UIViewController {
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   // MARK: Properties
-  var regions = Region.allCases
-  var weatherData = Dictionary<Region, Weather>()
+  private var regions = Region.allCases
+  private var weatherData = Dictionary<Region, Weather>()
   
   // MARK: View LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    collectionView.register(UINib(nibName: WeatherListCell.className, bundle: nil), forCellWithReuseIdentifier: WeatherListCell.className)
     configureCollectionView()
     getCurrentWeathers()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationController?.navigationBar.isHidden = true
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    self.navigationController?.navigationBar.isHidden = false
   }
   
   // MARK: API
@@ -56,6 +65,8 @@ class WeatherListViewController: UIViewController {
     layout.itemSize = CGSize(width: width, height: height)
     layout.minimumLineSpacing = 8
     collectionView.collectionViewLayout = layout
+    
+    collectionView.register(UINib(nibName: WeatherListCell.className, bundle: nil), forCellWithReuseIdentifier: WeatherListCell.className)
   }
 }
 
@@ -76,5 +87,10 @@ extension WeatherListViewController: UICollectionViewDataSource {
 }
 
 extension WeatherListViewController: UICollectionViewDelegate {
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let region = regions[indexPath.row]
+    guard let weather = weatherData[region] else { return }
+    let vc = WeatherDetailViewController.instantiate(region, weather)
+    self.navigationController?.pushViewController(vc, animated: true)
+  }
 }
